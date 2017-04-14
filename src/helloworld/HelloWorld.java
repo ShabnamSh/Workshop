@@ -22,12 +22,11 @@ public class HelloWorld {
         boolean bError = true;
         int cases = 0;
         Scanner sc = new Scanner(System.in);
-
-        
+         
         try {
 
             System.out.println("Enter a no of person");
-
+          
             cases = sc.nextInt();
             bError = false;
         } catch (InputMismatchException e) {
@@ -39,34 +38,30 @@ public class HelloWorld {
         int mod = 0;
 
         int num;
+          
+        for (int i = 0; i < cases; i++) {
+             try {
+                    
+                     System.out.println("Enter a seat no");
+             seatNo = sc.nextInt();
 
-        for (int i = 0; i < cases ; i++) {
-           
-            try  {
-                   
-                System.out.println("Enter a seat no");
-                   
-                 
-                seatNo = sc.nextInt();
+                    bError = false;
 
-                bError = false;
-                  
-                
+                } catch (InputMismatchException e) {
+
+                    System.out.print("Invalid number of seat no in number format. ");
+                    sc.next();
+                }
+          
+            if(seatNo>1 && seatNo<=108){
                  
-                
-            } catch (InputMismatchException e) {
                
-                System.out.print("Invalid number of seat no in number format. ");
-                sc.next();
-            }
+            
+            
+            
+    
+            mod = seatNo % 12;
 
-            if(seatNo>1|seatNo<=108){
-                mod = seatNo % 12;
-            }
-              else{
-                      System.out.println("enter right range");
-                  }
-           
             switch (mod) {
                 case 1:
                     num = (mod == 1 && seatNo != 1) ? (seatNo + 11) : 12;
@@ -120,7 +115,10 @@ public class HelloWorld {
                     System.out.println("oops!! again enter");
                     break;
             }
+            }else{
+                System.out.println("not in range:seats are available upto 108");
+            }
         }
-
-    }
 }
+
+}  
